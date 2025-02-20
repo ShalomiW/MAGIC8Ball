@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic 8-Ball</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #222;
+            color: white;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        input {
+            padding: 10px;
+            font-size: 1em;
+            width: 300px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: purple;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: darkviolet;
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎱 Magic 8-Ball 🎱</h1>
+    <p>Ask a Yes/No question:</p>
+    <input type="text" id="question" placeholder="Type your question...">
+    <br>
+    <button onclick="shakeBall()">Ask the Magic 8-Ball</button>
+    <p id="answer"></p>
+
+    <script>
+        function shakeBall() {
+            let question = document.getElementById("question").value.trim();
+
+            if (!question) {
+                document.getElementById("answer").textContent = "Please ask a question!";
+                return;
+            }
+
+            let responses = [
+                "Yes, definitely!",
+                "No way!",
+                "Ask again later...",
+                "It is certain.",
+                "Don't count on it.",
+                "Outlook not so good.",
+                "Signs point to yes.",
+                "Very doubtful."
+            ];
+
+            let randomIndex = Math.floor(Math.random() * responses.length);
+            document.getElementById("answer").textContent = "Magic 8-Ball says: " + responses[randomIndex];
+        }
+    </script>
+
+</body>
+</html>
+
